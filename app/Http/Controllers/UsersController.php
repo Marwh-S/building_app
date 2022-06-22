@@ -14,4 +14,11 @@ class UsersController extends Controller
     {
         return Excel::download(new UsersExport, 'users.xlsx');
     }
+
+    public function importFromExcel(Request $request) 
+    {
+        Excel::import(new UsersImport, $request->excelFile);
+        
+        return "Data Imported Successfully";
+    }
 }
