@@ -9,6 +9,8 @@ use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use App\Mail\IssuesRequestSubmitted;
 use Illuminate\Support\Facades\Mail;
+use App\Imports\IssuesImport;
+use Maatwebsite\Excel\Facades\Excel;
 
 class IssuesController extends Controller
 {
@@ -42,4 +44,17 @@ class IssuesController extends Controller
 
         return "Record is created Successfully";
     }
+
+    public function importFromExcel(Request $request) 
+    {
+
+        //validte file 
+        
+        Excel::import(new IssuesImport, $request->excelFile);
+
+        return "Data Imported Successfully";
+
+    }
+
+
 }
