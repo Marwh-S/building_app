@@ -2,11 +2,15 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Exports\UsersExport;
-use Maatwebsite\Excel\Facades\Excel;
 use App\Imports\UsersImport;
+use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Maatwebsite\Excel\Facades\Excel;
+use RealRashid\SweetAlert\Facades\Alert;
+
+
+
 
 class UsersController extends Controller
 {
@@ -18,7 +22,10 @@ class UsersController extends Controller
     public function importFromExcel(Request $request) 
     {
         Excel::import(new UsersImport, $request->excelFile);
+
         
-        return "Data Imported Successfully";
+        Alert::success('Data Imported Successfully', 'Will Done *_*!!');
+
+         return back();
     }
 }

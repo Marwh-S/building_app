@@ -36,6 +36,10 @@ Route::get('issues/list', 'IssuesController@list');
 
 Route::get('users', 'UsersController@export');
 
-Route::post('users/import', 'UsersController@importFromExcel');
+//Route::post('users/import', 'UsersController@importFromExcel');
 
-Route::view('users-form', 'excel-import');
+//Route::view('users-form', 'excel-import');
+
+Route::post('issues/import', 'UsersController@importFromExcel');
+
+Route::view('issues-form', 'excel-import');

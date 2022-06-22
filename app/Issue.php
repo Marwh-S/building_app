@@ -11,4 +11,12 @@ class Issue extends Model
     {
         return $this->belongsTo(User::class);
     }
+
+    protected $fillable = [
+       'name',
+       'email', 
+       'password',
+       'age',
+       'id'
+ ]
 }

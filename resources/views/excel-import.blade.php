@@ -7,14 +7,16 @@
     <title>Document</title>
 </head>
 <body>
-    
 
-<form action="/users/import" method="POST" enctype="multipart/form-data" >
+<form action="/issues/import" method="POST" enctype="multipart/form-data" >
     @csrf
     <input type="file" name="excelFile" id="">
     <input type="submit" value="Submit">
     
 </form>
+
+@include('sweetalert::alert', ['cdn' => "https://cdn.jsdelivr.net/npm/sweetalert2@9"])
+
 
 </body>
 </html>
